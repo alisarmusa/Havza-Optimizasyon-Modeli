@@ -1,0 +1,1017 @@
+<!--
+Created By Malisar (17.07.2017 - 11.08.2017)
+-->
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+
+        <!-- Plotly.js -->
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+        <!-- Jquery.js -->
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+	    <meta charset="utf-8">
+	    <title> ATHOM </title>
+
+	    <style type="text/css">
+	        #canvas
+            {
+                border: 5px dashed #333;
+                border-color: aqua;
+            }
+	    </style>
+
+    </head>
+
+    <body bgColor="white">
+
+        <div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
+
+        <canvas id="canvas" width="1300" height="562"></canvas>
+
+        <script language="javascript" type="text/javascript">
+
+      $(function(){                                                                        // jquery onMouseOver için
+
+      var tuval = document.getElementById('canvas');
+      var cizim = canvas.getContext('2d');
+
+      var cw = tuval.width;
+      var ch = tuval.height;     
+     
+// *********************************************************************************************************************************************************
+      // Yazı Yeri
+      
+      // Seyhan Havzası
+      cizim.font = "italic 25px sans-serif";
+      cizim.fillStyle = "rgba(255, 0, 0, 1.3)";
+      cizim.fillText("SEYHAN HAVZASI", 300, 40);
+        
+      // Akdeniz Dikdörtgeni
+      cizim.fillStyle = "rgba(135, 206, 235, 1)"; 
+      cizim.fillRect(0, 500, 1300, 70);
+
+      // Akdeniz Yazısı
+      cizim.font = "italic 30px sans-serif";
+      cizim.fillStyle = "rgba(255, 255, 255, 1.3)";
+      cizim.fillText("AKDENİZ", 20, 530);
+
+      // Seyhan Nehri Yazısı
+      cizim.font = "italic 20px sans-serif";
+      cizim.fillStyle = "rgba(0, 0, 0, 0.9)";
+      cizim.fillText("SEYHAN NEHRİ", 120, 460);
+
+      // Zamanti Irmağı Yazısı
+      cizim.font = "italic 20px sans-serif";
+      cizim.fillStyle = "rgba(0, 0, 0, 0.9)";
+      cizim.fillText("ZAMANTİ IRMAĞI", 460, 150);
+
+      // Feke Çayı Yazısı
+      cizim.font = "italic 20px sans-serif";
+      cizim.fillStyle = "rgba(0, 0, 0, 0.9)";
+      cizim.fillText("FEKE ÇAYI", 475, 285);
+
+      // Seyhan Dikdörtgeni
+      cizim.fillStyle = "rgba(64, 224, 208, 1)"; 
+      cizim.fillRect(60, 350, 90, 30);
+
+      // Seyhan Yazısı
+      cizim.font = "italic 15px sans-serif";
+      cizim.fillStyle = "rgba(0, 0, 0, 1.5)";
+      cizim.fillText("SEYHAN", 75, 370);
+
+      // Çatalan Dikdörtgeni
+      cizim.fillStyle = "rgba(64, 224, 208, 1)"; 
+      cizim.fillRect(200, 273, 90, 30);
+
+      // Çatalan Yazısı
+      cizim.font = "italic 15px sans-serif";
+      cizim.fillStyle = "rgba(0, 0, 0, 1.5)";
+      cizim.fillText("ÇATALAN", 215, 293);
+
+      // Yedigöze Dikdörtgeni
+      cizim.fillStyle = "rgba(64, 224, 208, 1)"; 
+      cizim.fillRect(335, 195, 105, 30);
+
+      // Yedigöze Yazısı
+      cizim.font = "italic 15px sans-serif";
+      cizim.fillStyle = "rgba(0, 0, 0, 1.5)";
+      cizim.fillText("YEDİGÖZE", 350, 215);
+
+      // Bahçelik Dikdörtgeni
+      cizim.fillStyle = "rgba(64, 224, 208, 1)"; 
+      cizim.fillRect(635, 30, 100, 30);
+
+      // Bahçelik Yazısı
+      cizim.font = "italic 15px sans-serif";
+      cizim.fillStyle = "rgba(0, 0, 0, 1.5)";
+      cizim.fillText("BAHÇELİK", 650, 50);
+
+      // Köprü Dikdörtgeni
+      cizim.fillStyle = "rgba(64, 224, 208, 1)"; 
+      cizim.fillRect(590, 192, 80, 30);
+
+      // Köprü Yazısı
+      cizim.font = "italic 15px sans-serif";
+      cizim.fillStyle = "rgba(0, 0, 0, 1.5)";
+      cizim.fillText("KÖPRÜ", 605, 212);
+
+      // Menge Dikdörtgeni
+      cizim.fillStyle = "rgba(64, 224, 208, 1)"; 
+      cizim.fillRect(670, 144, 80, 30);
+
+      // Menge Yazısı
+      cizim.font = "italic 15px sans-serif";
+      cizim.fillStyle = "rgba(0, 0, 0, 1.5)";
+      cizim.fillText("MENGE", 685, 164);
+
+      // Feke II Dikdörtgeni
+      cizim.fillStyle = "rgba(64, 224, 208, 1)"; 
+      cizim.fillRect(745, 96, 80, 30);
+
+      // Feke II Yazısı
+      cizim.font = "italic 15px sans-serif";
+      cizim.fillStyle = "rgba(0, 0, 0, 1.5)";
+      cizim.fillText("FEKE II", 760, 116);
+    
+// *********************************************************************************************************************************************************
+
+      // Ana Çizgiler
+
+      // 1. Çizgi
+      cizim.beginPath();
+
+      cizim.moveTo(10,500);
+
+      cizim.lineTo(850,36);
+        
+      cizim.lineWidth = "5";
+
+      cizim.stroke();
+
+      cizim.closePath();
+
+
+      // 2. Çizgi
+      cizim.beginPath();
+
+      cizim.moveTo(550,202);
+
+      cizim.lineTo(600,300);
+
+      cizim.lineWidth = "3";
+
+      cizim.stroke();
+
+      cizim.closePath();
+
+      // 3. Çizgi
+      cizim.beginPath();
+
+      cizim.moveTo(600,300);
+
+      cizim.lineTo(865,143);
+
+      cizim.lineWidth = "5";
+
+      cizim.stroke();
+
+      cizim.closePath();
+
+      // Barajlar (Dik Yamuklar)
+        
+      // 1. Dörtgen (Seyhan)
+      cizim.beginPath();
+
+      cizim.moveTo(70,467);
+
+      cizim.lineTo(90,400);
+
+      cizim.lineTo(110,400);
+
+      cizim.lineTo(110,445);
+
+      cizim.lineWidth = "2";
+
+      cizim.stroke();
+
+      cizim.closePath();
+
+      // 2. Dörtgen (Çatalan)
+      cizim.beginPath();
+
+      cizim.moveTo(210,390);
+
+      cizim.lineTo(230,323);
+
+      cizim.lineTo(250,323);
+
+      cizim.lineTo(250,368);
+
+      cizim.lineWidth = "2";
+
+      cizim.stroke();
+
+      cizim.closePath();   
+
+      // 3. Dörtgen (Yedigöze)
+      cizim.beginPath();
+
+      cizim.moveTo(350,312);
+
+      cizim.lineTo(370,245);
+
+      cizim.lineTo(390,245);
+
+      cizim.lineTo(390,290);
+
+      cizim.lineWidth = "2";
+
+      cizim.stroke();
+
+      cizim.closePath();
+
+      // 4. Dörtgen (Bahçelik)
+      cizim.beginPath();
+
+      cizim.moveTo(650,147);
+
+      cizim.lineTo(670,80);
+
+      cizim.lineTo(690,80);
+
+      cizim.lineTo(690,125);
+
+      cizim.lineWidth = "2";
+
+      cizim.stroke();
+
+      cizim.closePath();
+
+      // 5. Dörtgen (Köprü)
+      cizim.beginPath();
+
+      cizim.moveTo(610,294);
+
+      cizim.lineTo(620,242);
+
+      cizim.lineTo(630,242);
+
+      cizim.lineTo(630,282);
+
+      cizim.lineWidth = "2";
+
+      cizim.stroke();
+
+      cizim.closePath();
+
+      // 6. Dörtgen (Menge)
+      cizim.beginPath();
+
+      cizim.moveTo(690,246);
+
+      cizim.lineTo(700,194);
+
+      cizim.lineTo(710,194);
+    
+      cizim.lineTo(710,234);
+
+      cizim.lineWidth = "2";
+
+      cizim.stroke();
+
+      cizim.closePath();
+  
+      // 7. Dörtgen (Feke II)
+      cizim.beginPath();
+
+      cizim.fillStyle = 'rgb(0,255,0)';
+
+      cizim.moveTo(770,198);
+
+      cizim.lineTo(780,146);
+
+      cizim.lineTo(790,146);
+
+      cizim.lineTo(790,186);
+
+      cizim.lineWidth = "2";
+
+      cizim.stroke();
+
+      cizim.closePath();
+
+//****************************************************************************************************************************************************************
+      
+      // (Hareketli Kayan Üçgen, nehrin akışını kaydırmak için)
+
+      var kenar1_x = 845, kenar1_y;
+      var kenar2_x = 850, kenar2_y;
+      var kenar3_x = 860, kenar3_y;
+
+      var kenar4_x = 608, kenar4_y;
+      var kenar5_x = 598, kenar5_y;
+      var kenar6_x = 608, kenar6_y;
+
+      var kenar7_x = 860, kenar7_y;
+      var kenar8_x = 865, kenar8_y;
+      var kenar9_x = 875, kenar9_y;
+
+      var tema = 0;
+      var tema_rengi = '';
+
+      function ok()
+      {
+
+        switch (tema % 4) 
+        {
+        case 0 :
+            tema_rengi = 'Blue';
+            break;
+
+        case 1 :
+            tema_rengi = 'SkyBlue';
+            break;
+
+        case 2 :
+            tema_rengi = 'MidnightBlue';
+            break;
+
+        case 3 :
+            tema_rengi = 'PowderBlue';
+            break;
+        }
+        
+        // 1.Çizgi Üzeri Kayma
+        if(kenar1_x >= 10)
+        {
+             // 1. üçgen kaydır
+            kenar1_x = kenar1_x - 9;
+            kenar1_y = (424640 - 464 * kenar1_x) / 840;
+            kenar2_x = kenar2_x - 9;
+            kenar2_y = ((424640 - 464 * kenar2_x) / 840) - 10;
+            kenar3_x = kenar3_x - 9;
+            kenar3_y = (424640 - 464 * kenar3_x) / 840;
+
+            // 1. üçgen çiz
+            cizim.fillStyle = tema_rengi;
+            cizim.beginPath();
+            cizim.moveTo(kenar1_x, kenar1_y);
+            cizim.lineTo(kenar2_x, kenar2_y);
+            cizim.lineTo(kenar3_x, kenar3_y);
+            cizim.closePath();
+            cizim.fill(); 
+            
+        }
+        
+        // 2.Çizgi Üzeri Kayma
+        if(kenar7_x <= 600 && kenar4_x > 560)
+        {   
+            //2. üçgen kaydır
+            kenar4_x = kenar4_x - 7;
+            kenar4_y = (98 * kenar4_x - 43800) / 50;
+            kenar5_x = kenar5_x - 7;
+            kenar5_y = (98 * kenar5_x - 43800) / 50;
+            kenar6_x = kenar6_x - 7;
+            kenar6_y = ((98 * kenar6_x - 43800) / 50) - 15;
+                 
+            // 2. üçgen çiz
+            cizim.fillStyle = tema_rengi;
+            cizim.beginPath();
+            cizim.moveTo(kenar4_x, kenar4_y);
+            cizim.lineTo(kenar5_x, kenar5_y);
+            cizim.lineTo(kenar6_x, kenar6_y);
+            cizim.closePath();
+            cizim.fill();    
+        }
+
+        // 3.Çizgi Üzeri Kayma
+        if(kenar7_x > 600)
+        { 
+            // 3. üçgen kaydır
+            kenar7_x = kenar7_x - 10;
+            kenar7_y = (3300 - 3 * kenar7_x) / 5;
+            kenar8_x = kenar8_x - 10;
+            kenar8_y = ((3300 - 3 * kenar8_x) / 5) - 10;
+            kenar9_x = kenar9_x - 10;
+            kenar9_y = (3300 - 3 * kenar9_x) / 5;
+
+            // 3. üçgen çiz
+            cizim.fillStyle = tema_rengi;
+            cizim.beginPath();
+            cizim.moveTo(kenar7_x, kenar7_y);
+            cizim.lineTo(kenar8_x, kenar8_y);
+            cizim.lineTo(kenar9_x, kenar9_y);
+            cizim.closePath();
+            cizim.fill();
+        }     
+
+        // Sürekli Kayması İçin Bilgi Güncellemesi & Renk Değişimi
+         if(kenar1_x < 10)
+         {
+            kenar1_x = 845;
+            kenar2_x = 850; 
+            kenar3_x = 860;
+
+            kenar4_x = 608;
+            kenar5_x = 598;
+            kenar6_x = 608;
+
+            kenar7_x = 860;
+            kenar8_x = 865;
+            kenar9_x = 875;
+
+            tema = tema + 1;
+         } 
+    }                           // function ok
+
+      setInterval(ok, 100);     // Saniyenin 10'da 1'inde Yenileme
+
+// *********************************************************************************************************************************************************
+
+      // json ile veri çekme (su seviyeleri bilgileri)
+        
+      var su = JSON.parse('{"seyhan" : 4.75, "catalan" : 4.25, "yedigoze" : 3.13, "bahcelik" : 2.53, "kopru" : 3, "menge" : 4, "feke" : 5}');
+
+
+
+
+      // Su Seviyesi Hesaplama
+
+      // Seyhan Suyu
+      var seyhan = su.seyhan;
+
+      var seyhan_y = 445 - seyhan * 9;
+
+      var seyhan_x = (424640 - 840 * seyhan_y) / 464;
+
+      cizim.beginPath();
+
+      cizim.moveTo(110,seyhan_y);
+
+      cizim.lineTo(seyhan_x,seyhan_y);
+
+      cizim.lineWidth = "2";
+
+      cizim.stroke();
+
+      cizim.closePath();
+
+      // Çatalan Suyu
+      var catalan = su.catalan;
+
+      var catalan_y = 368 - catalan * 9;
+
+      var catalan_x = (424640 - 840 * catalan_y) / 464;
+
+      cizim.beginPath();
+
+      cizim.moveTo(250,catalan_y);
+
+      cizim.lineTo(catalan_x,catalan_y);
+
+      cizim.lineWidth = "2";
+
+      cizim.stroke();
+
+      cizim.closePath();
+
+      // Yedigöze Suyu
+      var yedigoze = su.yedigoze;
+
+      var yedigoze_y = 290 - yedigoze * 9;
+
+      var yedigoze_x = (424640 - 840 * yedigoze_y) / 464;
+
+      cizim.beginPath();
+
+      cizim.moveTo(390,yedigoze_y);
+
+      cizim.lineTo(yedigoze_x,yedigoze_y);
+
+      cizim.lineWidth = "2";
+
+      cizim.stroke();
+
+      cizim.closePath();
+
+      // Bahçelik Suyu
+      var bahcelik = su.bahcelik;
+
+      var bahcelik_y = 125 - bahcelik * 9;
+
+      var bahcelik_x = (424640 - 840 * bahcelik_y) / 464;
+
+      cizim.beginPath();
+
+      cizim.moveTo(690,bahcelik_y);
+
+      cizim.lineTo(bahcelik_x,bahcelik_y);
+
+      cizim.lineWidth = "2";
+
+      cizim.stroke();
+
+      cizim.closePath();
+
+      // Köprü Suyu
+      var kopru = su.kopru;
+
+      var kopru_y = 282 - kopru * 8;
+
+      var kopru_x = (3300 - 5 * kopru_y) / 3;
+
+      cizim.beginPath();
+
+      cizim.moveTo(630,kopru_y);
+
+      cizim.lineTo(kopru_x,kopru_y);
+
+      cizim.lineWidth = "2";
+
+      cizim.stroke();
+
+      cizim.closePath();
+
+      // Menge Suyu
+      var menge = su.menge;
+
+      var menge_y = 234 - menge * 8;
+
+      var menge_x = (3300 - 5 * menge_y) / 3;
+
+      cizim.beginPath();
+
+      cizim.moveTo(710,menge_y);
+
+      cizim.lineTo(menge_x,menge_y);
+
+      cizim.lineWidth = "2";
+
+      cizim.stroke();
+
+      cizim.closePath();
+
+      // Feke II Suyu
+      var feke = su.feke;
+
+      var feke_y = 186 - feke * 8;
+
+      var feke_x = (3300 - 5 * feke_y) / 3;
+
+      cizim.beginPath();
+
+      cizim.moveTo(790,feke_y);
+
+      cizim.lineTo(feke_x,feke_y);
+
+      cizim.lineWidth = "2";
+
+      cizim.stroke();
+
+      cizim.closePath();
+
+// *****************************************************************************************************************************************************
+
+      // Suları Renklendirme 
+
+      function alanBoya(pts, doldur, renk)
+      {
+        cizim.beginPath();
+        cizim.moveTo(pts[0].x,pts[0].y);
+        for(var i=0;i<pts.length;i++)
+        {
+            var pt=pts[i];
+            cizim.lineTo(pt.x, pt.y);
+        }
+
+        cizim.save();
+
+        cizim.clip();
+
+        cizim.fillStyle = renk;
+        cizim.fillRect(0, doldur.top, cw, doldur.bottom - doldur.top);
+
+        cizim.restore();
+
+        cizim.lineWidth=2;
+        cizim.stroke();
+      }
+    
+      // Seyhan Su
+
+      var seyhan_su =
+      [
+      {x: 110, y: 445},
+      {x: 110, y: seyhan_y},
+      {x: seyhan_x, y: seyhan_y},
+      ];
+
+      var seyhan_alan = {top: seyhan_y, bottom: 445};
+
+      alanBoya(seyhan_su, seyhan_alan, 'skyblue');
+
+      // Çatalan Su
+
+      var catalan_su =
+      [
+      {x: 250, y: 368},
+      {x: 250, y: catalan_y},
+      {x: catalan_x, y: catalan_y},
+      ];
+
+      var catalan_alan = {top: catalan_y, bottom: 368};
+
+      alanBoya(catalan_su, catalan_alan, 'skyblue');
+
+      // Yedigöze Su
+
+      var yedigoze_su =
+      [
+      {x: 390, y: 290},
+      {x: 390, y: yedigoze_y},
+      {x: yedigoze_x, y: yedigoze_y},
+      ];
+
+      var yedigoze_alan = {top: yedigoze_y, bottom: 290};
+
+      alanBoya(yedigoze_su, yedigoze_alan, 'skyblue');
+
+      // Bahçelik Su
+
+      var bahcelik_su =
+      [
+      {x: 690, y: 125},
+      {x: 690, y: bahcelik_y},
+      {x: bahcelik_x, y: bahcelik_y},
+      ];
+
+      var bahcelik_alan = {top: bahcelik_y, bottom: 125};
+
+      alanBoya(bahcelik_su, bahcelik_alan, 'skyblue');
+
+      // Köprü Su
+
+      var kopru_su =
+      [
+      {x: 630, y: 282},
+      {x: 630, y: kopru_y},
+      {x: kopru_x, y: kopru_y},
+      ];
+
+      var kopru_alan = {top: kopru_y, bottom: 282};
+
+      alanBoya(kopru_su, kopru_alan, 'skyblue');
+
+      // Menge Su
+
+      var menge_su =
+      [
+      {x: 710, y: 234},
+      {x: 710, y: menge_y},
+      {x: menge_x, y: menge_y},
+      ];
+
+      var menge_alan = {top: menge_y, bottom: 234};
+
+      alanBoya(menge_su, menge_alan, 'skyblue');
+
+      // Feke II Su
+
+      var feke_su =
+      [
+      {x: 790, y: 186},
+      {x: 790, y: feke_y},
+      {x: feke_x, y: feke_y},
+      ];
+
+      var feke_alan = {top: feke_y, bottom: 186};
+
+      alanBoya(feke_su, feke_alan, 'skyblue');
+
+
+      // Barajları renklendirme
+
+      // Seyhan Barajı
+      var seyhan_baraj =
+      [
+      {x: 70, y: 467},
+      {x: 90, y: 400},
+      {x: 110, y: 400},
+      {x: 110, y: 445},
+      ];
+
+      var seyhan_alan = {top: 400, bottom: 467};
+
+      alanBoya(seyhan_baraj, seyhan_alan, 'chocolate');
+
+      // Çatalan Barajı
+      var catalan_baraj =
+      [
+      {x: 210, y: 390},
+      {x: 230, y: 323},
+      {x: 250, y: 323},
+      {x: 250, y: 368},
+      ];
+
+      var catalan_alan = {top: 323, bottom: 390};
+
+      alanBoya(catalan_baraj, catalan_alan, 'chocolate');
+
+      // Yedigöze Barajı
+      var yedigoze_baraj =
+      [
+      {x: 350, y: 312},
+      {x: 370, y: 245},
+      {x: 390, y: 245},
+      {x: 390, y: 290},
+      ];
+
+      var yedigoze_alan = {top: 245, bottom: 312};
+
+      alanBoya(yedigoze_baraj, yedigoze_alan, 'chocolate');
+
+      // Bahçelik Barajı
+      var bahcelik_baraj =
+      [
+      {x: 650, y: 147},
+      {x: 670, y: 80},
+      {x: 690, y: 80},
+      {x: 690, y: 125},
+      ];
+
+      var bahcelik_alan = {top: 80, bottom: 147};
+
+      alanBoya(bahcelik_baraj, bahcelik_alan, 'chocolate');
+
+      // Köprü Barajı
+      var kopru_baraj =
+      [
+      {x: 610, y: 294},
+      {x: 620, y: 242},
+      {x: 630, y: 242},
+      {x: 630, y: 282},
+      ];
+
+      var kopru_alan = {top: 242, bottom: 294};
+
+      alanBoya(kopru_baraj, kopru_alan, 'chocolate');
+
+      // Menge Barajı
+      var menge_baraj =
+      [
+      {x: 690, y: 246},
+      {x: 700, y: 194},
+      {x: 710, y: 194},
+      {x: 710, y: 234},
+      ];
+
+      var menge_alan = {top: 194, bottom: 246};
+
+      alanBoya(menge_baraj, menge_alan, 'chocolate');
+
+      // Feke II Barajı
+      var feke_baraj =
+      [
+      {x: 770, y: 198},
+      {x: 780, y: 146},
+      {x: 790, y: 146},
+      {x: 790, y: 186},
+      ];
+
+      var feke_alan = {top: 146, bottom: 198};
+
+      alanBoya(feke_baraj, feke_alan, 'chocolate');
+
+// *****************************************************************************************************************************************************
+
+        // Plot Kütüphanesi Line Charts
+
+    // Koordinat Değerleri
+var line_seyhan = {
+  x: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+  y: [86, 82, 70, 76, 84, 90, 94, 74, 66, 42, 46, su.seyhan / 5 * 100],
+  mode: 'lines+markers'
+};
+var line_catalan = {
+  x: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+  y: [66, 71, 56, 38, 82, 25, 74, 67, 78, 86, 44, su.catalan / 5 * 100],
+  mode: 'lines+markers'
+};
+var line_yedigoze = {
+  x: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+  y: [78, 42, 60, 43, 57, 69, 41, 53, 89, 13, 85, su.yedigoze / 5 * 100],
+  mode: 'lines+markers'
+};
+var line_bahcelik = {
+  x: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+  y: [56, 67, 79, 84, 43, 33, 47, 95, 07, 56, 68, su.bahcelik / 5 * 100],
+  mode: 'lines+markers'
+};
+var line_kopru = {
+  x: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+  y: [24, 81, 63, 61, 65, 45, 50, 55, 57, 53, 44, su.kopru / 5 * 100],
+  mode: 'lines+markers'
+};
+var line_menge = {
+  x: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+  y: [61, 63, 51, 53, 55, 57, 59, 55, 57, 63, 67, su.menge / 5 * 100],
+  mode: 'lines+markers'
+};
+var line_feke = {
+  x: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+  y: [91, 89, 90, 88, 80, 73, 79, 85, 89, 83, 77, su.feke / 5 * 100],
+  mode: 'lines+markers'
+};
+
+// Veri Koordinat Aktarımı
+var veri_seyhan = [line_seyhan];
+var veri_catalan = [line_catalan];
+var veri_yedigoze = [line_yedigoze];
+var veri_bahcelik = [line_bahcelik];
+var veri_kopru = [line_kopru];
+var veri_menge = [line_menge];
+var veri_feke = [line_feke];
+
+// Barajların yanına doluluk oranlarını yazıyoruz...
+var etiket_seyhan = "SEYHAN BARAJI (%" + (su.seyhan / 5 * 100) + ")";
+var etiket_catalan = "ÇATALAN BARAJI (%" + (su.catalan / 5 * 100) + ")";
+var etiket_yedigoze = "YEDİGÖZE BARAJI (%" + (su.yedigoze / 5 * 100) + ")";
+var etiket_bahcelik = "BAHÇELİK BARAJI (%" + (su.bahcelik / 5 * 100) + ")";
+var etiket_kopru = "KÖPRÜ BARAJI (%" + (su.kopru / 5 * 100) + ")";
+var etiket_menge = "MENGE BARAJI (%" + (su.menge / 5 * 100) + ")";
+var etiket_feke = "FEKE II BARAJI (%" + (su.feke / 5 * 100) + ")";
+
+// İsimler
+var info_seyhan = {
+  title: etiket_seyhan,
+  xaxis: {
+    title: 'AYLAR (2016)'
+  },
+  yaxis: {
+    title: 'SU DOLULUK YÜZDELERİ (%)'
+  }
+};
+var info_catalan = {
+  title: etiket_catalan,
+  xaxis: {
+    title: 'AYLAR (2016)'
+  },
+  yaxis: {
+    title: 'SU DOLULUK YÜZDELERİ (%)'
+  }
+};
+var info_yedigoze = {
+  title: etiket_yedigoze,
+  xaxis: {
+    title: 'AYLAR (2016)'
+  },
+  yaxis: {
+    title: 'SU DOLULUK YÜZDELERİ (%)'
+  }
+};
+var info_bahcelik = {
+  title: etiket_bahcelik,
+  xaxis: {
+    title: 'AYLAR (2016)'
+  },
+  yaxis: {
+    title: 'SU DOLULUK YÜZDELERİ (%)'
+  }
+};
+var info_kopru = {
+  title: etiket_kopru,
+  xaxis: {
+    title: 'AYLAR (2016)'
+  },
+  yaxis: {
+    title: 'SU DOLULUK YÜZDELERİ (%)'
+  }
+};
+var info_menge = {
+  title: etiket_menge,
+  xaxis: {
+    title: 'AYLAR (2016)'
+  },
+  yaxis: {
+    title: 'SU DOLULUK YÜZDELERİ (%)'
+  }
+};
+var info_feke = {
+  title: etiket_feke,
+  xaxis: {
+    title: 'AYLAR (2016)'
+  },
+  yaxis: {
+    title: 'SU DOLULUK YÜZDELERİ (%)'
+  }
+};
+
+
+// ************************************************************************************************************************************************************				
+	
+			        tuval.addEventListener('mousemove',function(e){     // Fare Canvas'ta Hareket Ederse
+
+					var cp=canvas.getBoundingClientRect(),              // Canvas Konumu
+
+						  x=e.clientX-cp.left,                          // X Ekseni (EkranX - CanvasX)
+
+						  y=e.clientY-cp.top;                           // Y Ekseni (EkranY - CanvasY)
+
+						    // Seyhan Dikdörtgeni Koordinatları, Grafik İçin
+                            for(var i=60; i<=150; i++)
+                            {
+                                for(var j=350; j<=380; j++)
+                                {
+                                    if(i==x && j==y)
+                                    {
+                                       Plotly.newPlot('myDiv', veri_seyhan, info_seyhan);
+                                    }
+                                }
+                            } 
+
+                            // Çatalan Dikdörtgeni Koordinatları, Grafik İçin
+                            for(var i=200; i<=290; i++)
+                            {
+                                for(var j=273; j<=303; j++)
+                                {
+                                    if(i==x && j==y)
+                                    {
+                                       Plotly.newPlot('myDiv', veri_catalan, info_catalan);
+                                    }
+                                }
+                            } 
+
+                            // Yedigöze Dikdörtgeni Koordinatları & Line Chart Grafiği
+                            for(var i=335; i<=440; i++)
+                            {
+                                for(var j=195; j<=225; j++)
+                                {
+                                    if(i==x && j==y)
+                                    {
+                                       Plotly.newPlot('myDiv', veri_yedigoze, info_yedigoze);
+                                    }
+                                }
+                            } 
+
+                            // Bahçelik Dikdörtgeni Koordinatları & Line Chart Grafiği
+                            for(var i=635; i<=735; i++)
+                            {
+                                for(var j=30; j<=60; j++)
+                                {
+                                    if(i==x && j==y)
+                                    {
+                                       Plotly.newPlot('myDiv', veri_bahcelik, info_bahcelik);
+                                    }
+                                }
+                            }
+
+                            // Köprü Dikdörtgeni Koordinatları & Line Chart Grafiği
+                            for(var i=590; i<=670; i++)
+                            {
+                                for(var j=192; j<=222; j++)
+                                {
+                                    if(i==x && j==y)
+                                    {
+                                       Plotly.newPlot('myDiv', veri_kopru, info_kopru);
+                                    }
+                                }
+                            }  
+
+                            // Menge Dikdörtgeni Koordinatları & Line Chart Grafiği
+                            for(var i=670; i<=750; i++)
+                            {
+                                for(var j=144; j<=174; j++)
+                                {
+                                    if(i==x && j==y)
+                                    {
+                                       Plotly.newPlot('myDiv', veri_menge, info_menge);
+                                    }
+                                }
+                            } 
+
+                            // Feke II Dikdörtgeni Koordinatları & Line Chart Grafiği
+                            for(var i=745; i<=825; i++)
+                            {
+                                for(var j=96; j<=126; j++)
+                                {
+                                    if(i==x && j==y)
+                                    {
+                                       Plotly.newPlot('myDiv', veri_feke, info_feke);
+                                    }
+                                }
+                            } 
+
+				}, false);
+
+	})
+
+
+        </script>
+
+    </body>
+
+</html>
